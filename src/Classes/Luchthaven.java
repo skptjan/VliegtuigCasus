@@ -1,8 +1,8 @@
 package Classes;
 
 public class Luchthaven {
-    public boolean toestemmingOpstijgen(int gewicht, int tegenWind) {
-        if (gewicht < 1000 || tegenWind < 50)
+    public boolean toestemmingOpstijgen(int gewicht, int tegenWind, boolean toestemming) {
+        if ((gewicht < 1000 || tegenWind < 50) && toestemming)
             return true;
 
         return false;

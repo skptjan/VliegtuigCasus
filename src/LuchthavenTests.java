@@ -8,9 +8,13 @@ public class LuchthavenTests {
     void toestemmingOpstijgen(){
         Luchthaven schiphol = new Luchthaven();
 
-        assertFalse(schiphol.toestemmingOpstijgen(1500, 75));
-        assertTrue(schiphol.toestemmingOpstijgen(1200, 40));
-        assertTrue(schiphol.toestemmingOpstijgen(850, 90));
+        assertFalse(schiphol.toestemmingOpstijgen(2500, 55, true));
+        assertFalse(schiphol.toestemmingOpstijgen(2500, 25, false));
+        assertFalse(schiphol.toestemmingOpstijgen(850, 55, false));
+
+        assertTrue(schiphol.toestemmingOpstijgen(850, 55, true));
+        assertTrue(schiphol.toestemmingOpstijgen(2500, 25, true));
+        assertTrue(schiphol.toestemmingOpstijgen(850, 25, true));
     }
 
     @Test
@@ -36,26 +40,26 @@ public class LuchthavenTests {
         assertEquals(2500, schiphol.getPrijsBijLanden(v7), 0.001);
     }
 
-@Test
-void getPrijs() {
-    Luchthaven schiphol = new Luchthaven();
+    @Test
+    void getPrijs() {
+        Luchthaven schiphol = new Luchthaven();
 
-    Vliegtuig v0 = new Vliegtuig(500, Landen.Nederland, 1, true);
-    Vliegtuig v1 = new Vliegtuig(500, Landen.Anders, 40, false);
+        Vliegtuig v0 = new Vliegtuig(500, Landen.Nederland, 1, true);
+        Vliegtuig v1 = new Vliegtuig(500, Landen.Anders, 40, false);
 
-    Vliegtuig v2 = new Vliegtuig(1050, Landen.Nederland, 1, true);
-    Vliegtuig v3 = new Vliegtuig(1050, Landen.Anders, 50, false);
+        Vliegtuig v2 = new Vliegtuig(1050, Landen.Nederland, 1, true);
+        Vliegtuig v3 = new Vliegtuig(1050, Landen.Anders, 50, false);
 
-    Vliegtuig v4 = new Vliegtuig(6500, Landen.Nederland, 1, true);
-    Vliegtuig v5 = new Vliegtuig(6500, Landen.Anders, 60, false);
+        Vliegtuig v4 = new Vliegtuig(6500, Landen.Nederland, 1, true);
+        Vliegtuig v5 = new Vliegtuig(6500, Landen.Anders, 60, false);
 
-    assertEquals(1089, schiphol.getPrijsBijLanden(v0), 0.001);
-    assertEquals(150, schiphol.getPrijsBijLanden(v1), 0.001);
+        assertEquals(1089, schiphol.getPrijsBijLanden(v0), 0.001);
+        assertEquals(150, schiphol.getPrijsBijLanden(v1), 0.001);
 
-    assertEquals(1573, schiphol.getPrijsBijLanden(v2), 0.001);
-    assertEquals(750, schiphol.getPrijsBijLanden(v3), 0.001);
+        assertEquals(1573, schiphol.getPrijsBijLanden(v2), 0.001);
+        assertEquals(750, schiphol.getPrijsBijLanden(v3), 0.001);
 
-    assertEquals(3993, schiphol.getPrijsBijLanden(v4), 0.001);
-    assertEquals(3750, schiphol.getPrijsBijLanden(v5), 0.001);
-}
+        assertEquals(3993, schiphol.getPrijsBijLanden(v4), 0.001);
+        assertEquals(3750, schiphol.getPrijsBijLanden(v5), 0.001);
+    }
 }
