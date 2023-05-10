@@ -1,2 +1,6 @@
-package Classes;public enum Landen {
+package Classes;
+
+public enum Landen {
+    Nederland,
+    Anders
 }
