@@ -8,13 +8,13 @@ public class LuchthavenTests {
     void toestemmingOpstijgen(){
         Luchthaven schiphol = new Luchthaven();
 
-        assertFalse(schiphol.toestemmingOpstijgen(2500, 55, true));
-        assertFalse(schiphol.toestemmingOpstijgen(2500, 25, false));
-        assertFalse(schiphol.toestemmingOpstijgen(850, 55, false));
+        assertFalse(schiphol.toestemmingOpstijgen(2500, 25, true));
+        assertFalse(schiphol.toestemmingOpstijgen(2500, 55, false));
+        assertFalse(schiphol.toestemmingOpstijgen(850, 25, false));
 
-        assertTrue(schiphol.toestemmingOpstijgen(850, 55, true));
-        assertTrue(schiphol.toestemmingOpstijgen(2500, 25, true));
         assertTrue(schiphol.toestemmingOpstijgen(850, 25, true));
+        assertTrue(schiphol.toestemmingOpstijgen(2500, 55, true));
+        assertTrue(schiphol.toestemmingOpstijgen(850, 55, true));
     }
 
     @Test
